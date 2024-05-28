@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output, output } from '@angular/core';
+import { Recipe } from '../../recipes/recipe.model';
 
 @Component({
   selector: 'app-header',
@@ -7,5 +8,10 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   collapsed = true;
+  @Output() featureSelected = new EventEmitter<string>();
+
+  onSelect(feature: string) {
+    this.featureSelected.emit(feature);
+  }
 
 }
